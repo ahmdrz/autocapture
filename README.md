@@ -1,4 +1,8 @@
-# autocapture | `Take screenshot of your display automatically and very simple !`
+## autocapture
+
+> Take screenshot of your display automatically and very simple !
+
+---
 
 It's very simple program. It will help you if you have to take a screenshot of your display repeatedly.
 
