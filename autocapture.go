@@ -24,9 +24,12 @@ func main() {
 	for {
 		select {
 		case <-time.NewTicker(cfg.Interval).C:
-			err = takeScreenshot(cfg.OuputDir)
-			if err != nil {
-				log.Println(err)
+			hour := time.Now().Hour()
+			if hour >= cfg.StartHour && hour < cfg.FinishHour {
+				err = takeScreenshot(cfg.OuputDir)
+				if err != nil {
+					log.Println(err)
+				}
 			}
 		case <-death:
 			log.Println("Signal received !")

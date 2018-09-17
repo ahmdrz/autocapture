@@ -9,17 +9,23 @@ import (
 )
 
 type Config struct {
-	Interval time.Duration
-	OuputDir string
+	Interval   time.Duration
+	OuputDir   string
+	StartHour  int
+	FinishHour int
 }
 
 func parseFlags() (*Config, error) {
 	var (
 		intervalString string
-		outputDir      string
 	)
+
+	config := &Config{}
+
 	flag.StringVar(&intervalString, "interval", "15s", "Interval to capture screenshot. Ex: 15s means capture every 15 seconds.")
-	flag.StringVar(&outputDir, "output", path.Join(".", "captures"), "Directory to save screenshots.")
+	flag.StringVar(&config.OuputDir, "output", path.Join(".", "captures"), "Directory to save screenshots.")
+	flag.IntVar(&config.StartHour, "start-hour", 0, "Start capture from which hour ? 0-24")
+	flag.IntVar(&config.FinishHour, "finish-hour", 24, "Finish capture from which hour ? 0-24")
 	flag.Parse()
 
 	if len(intervalString) == 0 {
@@ -32,10 +38,6 @@ func parseFlags() (*Config, error) {
 	number, err := strconv.ParseInt(digits, 10, 64)
 	if err != nil {
 		return nil, err
-	}
-
-	config := &Config{
-		OuputDir: outputDir,
 	}
 
 	if letter == 's' {

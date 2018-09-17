@@ -12,6 +12,12 @@ It's very simple program. It will help you if you have to take a screenshot of y
 ./autocapture --interval="15s" --output="./captures"
 ```
 
+```bash
+./autocapture --interval="15s" --start-hour=15 --finish-hour=20
+```
+
+Condition for hours is hour >= `start-hour` and hour < `finish-hour`.
+
 ### How to compile for Windows ?
 
 **amd64**:
