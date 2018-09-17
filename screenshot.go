@@ -18,7 +18,7 @@ func takeScreenshot(outputDir string) error {
 		if err != nil {
 			return err
 		}
-		file, err := os.Create(path.Join(outputDir, fmt.Sprintf("%s (%d).png", time.Now().Format("2006_01_02 15:04:05"), i)))
+		file, err := os.Create(path.Join(outputDir, fmt.Sprintf("%s (%d).png", time.Now().Format("2006_01_02 15_04_05"), i)))
 		if err != nil {
 			return err
 		}
