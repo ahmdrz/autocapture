@@ -1,6 +1,6 @@
 ## autocapture
 
-> Take screenshot of your display automatically and very simple !
+> Take screenshot of your display automatically and simply !
 
 ---
 
